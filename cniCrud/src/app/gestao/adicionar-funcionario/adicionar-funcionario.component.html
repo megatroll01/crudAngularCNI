@@ -1,0 +1,45 @@
+<form [formGroup]="form">
+    <div class="addDivPrincipal">
+        <p class="addTitulo">Formulário de Cadastro do Funcionário</p>
+        <p class="mg">
+            <mat-form-field class="addInput" appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input matInput placeholder="000-000-000-00" formControlName="cpf" required>
+              </mat-form-field>
+        </p>
+        <p class="mg">
+            <mat-form-field class="addInput" appearance="fill">
+                <mat-label>Nome Completo</mat-label>
+                <input matInput placeholder="Fulano Alguma Coisa" formControlName="name" required>
+              </mat-form-field>
+        </p>
+        <p class="mg">
+            <mat-form-field class="addInput" appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="email" required>
+              </mat-form-field>
+        </p>
+        <p class="mg">
+            <mat-form-field class="addInput" appearance="fill">
+                <mat-label>Telefone</mat-label>
+                <input matInput placeholder="(00)00000-0000" formControlName="telefone" required>
+              </mat-form-field>
+        </p>
+        <p class="mg">
+            <mat-form-field class="addInput" appearance="fill">
+                <mat-label>Cargo</mat-label>
+                <input matInput placeholder="" formControlName="cargo" required>
+              </mat-form-field>
+        </p>
+        <p class="mg">
+            <mat-form-field class="addInput" appearance="fill">
+                <mat-label>Sede</mat-label>
+                <input matInput placeholder="" formControlName="sede" required>
+              </mat-form-field>
+        </p>
+        <p>
+            <button class="mg" mat-raised-button color="primary" (click)="onSubmit()">Incluir</button>
+            <button class="mg" mat-raised-button (click)="onCancel()">Cancelar</button>
+        </p>
+    </div>
+</form>
