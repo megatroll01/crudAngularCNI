@@ -5,6 +5,7 @@ import { FuncionarioObj } from '../model/funcionarios';
 import { FuncionariosService } from '../services/funcionarios.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalErroComponent } from 'src/app/componentes/modal-erro/modal-erro.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-funcionario',
@@ -20,12 +21,23 @@ export class FuncionarioComponent implements OnInit {
   constructor(
     private funcionariosServices: FuncionariosService,
     public dialog: MatDialog,
+    private snackBar: MatSnackBar,
     private router: Router) {
 
     this.dadosFuncionarios = this.funcionariosServices.list()
       .pipe(
         catchError(error => {
-          this.onError('Erro ao carregar cursos.');
+          this.onError('Erro ao carregar Funcionarios.');
+          return of([])
+        })
+      );
+  }
+
+  carregarDados(){
+    this.dadosFuncionarios = this.funcionariosServices.list()
+      .pipe(
+        catchError(error => {
+          this.onError('Erro ao carregar Funcionarios.');
           return of([])
         })
       );
@@ -39,6 +51,16 @@ export class FuncionarioComponent implements OnInit {
 
   addFuncionario() {
     this.router.navigate(['gestao/addFuncionario']);
+  }
+
+  onEdit(funcionario: FuncionarioObj) {
+    this.router.navigate(['gestao/EditFuncionario', funcionario.id]);
+  }
+  onDelete(funcionario: FuncionarioObj){
+    this.funcionariosServices.delete(funcionario.id).subscribe(() => {
+      this.carregarDados();
+      this.snackBar.open('Funcionario Excluido com Sucesso.', '', { duration: 5000, verticalPosition: 'top', horizontalPosition: 'center'});
+    });
   }
 
   ngOnInit(): void {

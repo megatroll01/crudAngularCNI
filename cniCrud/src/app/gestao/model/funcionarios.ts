@@ -1,5 +1,5 @@
 export interface FuncionarioObj {
-    id: number;
+    id: string;
     cpf: string;
     nome: string;
     email: string;

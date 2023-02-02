@@ -46,8 +46,8 @@
                             <button  mat-raised-button color="primary" (click)="addFuncionario()">Adicionar Funcionario</button>
                         </th>
                         <td mat-cell *matCellDef="let element">
-                            <button mat-flat-button class="mgLateral" color="secondary">Editar</button>
-                            <button mat-flat-button class="mgLateral" color="warn">Excluir</button>
+                            <button mat-flat-button class="mgLateral" color="secondary"  (click)="onEdit(element)">Editar</button>
+                            <button mat-flat-button class="mgLateral" color="warn" (click)="onDelete(element)">Excluir</button>
                         </td>
                     </ng-container>
 

@@ -10,13 +10,13 @@ import lombok.Data;
 
 @Entity
 @Data
-public class funcionario {
+public class FuncionarioObj {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(length = 11, nullable = false)
+    @Column(length = 14, nullable = false)
     private String cpf;
 
     @Column(length = 200, nullable = false)

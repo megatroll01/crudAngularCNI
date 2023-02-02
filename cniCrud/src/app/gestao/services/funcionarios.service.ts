@@ -20,8 +20,27 @@ export class FuncionariosService {
     );
   }
 
+  loadById(id: string){
+    return this.httpClient.get<FuncionarioObj>(`${this.API}/${id}`);
+  }
+
   addFuncionario(funcionario: FuncionarioObj){
-    
+    if(funcionario.id){
+      return this.update(funcionario)
+    }
+    return this.criar(funcionario);
+  }
+
+  private criar(funcionario: FuncionarioObj){
     return this.httpClient.post<FuncionarioObj>(this.API, funcionario).pipe(first());
   }
+
+  private update(funcionario: FuncionarioObj){
+    return this.httpClient.put<FuncionarioObj>(`${this.API}/${funcionario.id}`, funcionario).pipe(first());
+  }
+
+  delete(id: string){
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+  }
+
 }

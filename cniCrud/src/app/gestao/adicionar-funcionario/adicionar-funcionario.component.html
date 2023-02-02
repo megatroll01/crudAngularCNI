@@ -4,13 +4,13 @@
         <p class="mg">
             <mat-form-field class="addInput" appearance="fill">
                 <mat-label>CPF</mat-label>
-                <input matInput placeholder="000-000-000-00" formControlName="cpf" required>
+                <input [readonly]=temCadastro matInput placeholder="000-000-000-00" formControlName="cpf" required>
               </mat-form-field>
         </p>
         <p class="mg">
             <mat-form-field class="addInput" appearance="fill">
                 <mat-label>Nome Completo</mat-label>
-                <input matInput placeholder="Fulano Alguma Coisa" formControlName="name" required>
+                <input matInput placeholder="Fulano Alguma Coisa" formControlName="nome" required>
               </mat-form-field>
         </p>
         <p class="mg">
@@ -38,7 +38,7 @@
               </mat-form-field>
         </p>
         <p>
-            <button class="mg" mat-raised-button color="primary" (click)="onSubmit()">Incluir</button>
+            <button class="mg" mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
             <button class="mg" mat-raised-button (click)="onCancel()">Cancelar</button>
         </p>
     </div>
